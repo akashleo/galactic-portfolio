@@ -1,0 +1,43 @@
+{
+  "intro": {
+    "title": "A NEW PORTFOLIO",
+    "text": [
+      "It is a period of career transition. A brave developer, striking from a hidden base, has won their first victory against the evil Galactic Empire of boring resumes.",
+      "During the battle, Rebel spies managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet.",
+      "Pursued by the Empire’s sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy...."
+    ]
+  },
+  "about": {
+    "name": "Akash",
+    "title": "3D & Full-Stack Developer",
+    "description": "A passionate developer with a love for creating immersive 3D experiences and robust web applications. I turn ideas into reality with code, from the final frontier of space to the user's screen."
+  },
+  "skills": [
+    "React", "Three.js", "Node.js", "JavaScript", "TypeScript", "Tailwind CSS", "WebGL", "GLSL"
+  ],
+  "projects": [
+    {
+      "title": "Project Alpha",
+      "description": "An interactive 3D model viewer for e-commerce, built with React and Three.js.",
+      "link": "#",
+      "image": "/path/to/image1.jpg"
+    },
+    {
+      "title": "Project Beta",
+      "description": "A data visualization dashboard using D3.js and React to display complex datasets in an intuitive way.",
+      "link": "#",
+      "image": "/path/to/image2.jpg"
+    },
+    {
+      "title": "Project Gamma",
+      "description": "A real-time multiplayer game built with Node.js, Socket.io, and Three.js.",
+      "link": "#",
+      "image": "/path/to/image3.jpg"
+    }
+  ],
+  "contact": {
+    "email": "your.email@example.com",
+    "linkedin": "https://linkedin.com/in/yourprofile",
+    "github": "https://github.com/yourprofile"
+  }
+}
