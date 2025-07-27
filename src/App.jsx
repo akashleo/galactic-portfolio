@@ -112,6 +112,20 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="App">
+      {!appState.showIntro &&
+        <img 
+          src="/mfalcon.png" 
+          alt="Top right decoration" 
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            zIndex: 2,
+            maxWidth: '400px',
+            maxHeight: '400px',
+            objectFit: 'contain'
+          }}
+        />}
         <Scene />
         <div className="content">
           <Suspense fallback={<LoadingFallback />}>

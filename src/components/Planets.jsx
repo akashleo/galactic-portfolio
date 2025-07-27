@@ -65,13 +65,6 @@ const Planet = ({
           />
         </mesh>
       )}
-
-      {/* 🌕 Orbiting Moon */}
-      <group ref={moonRef}>
-        <Sphere args={[planetRadius * 0.15, 32, 32]} castShadow receiveShadow position={[planetRadius * 1.25, 0, 0]}>
-          <meshStandardMaterial color="#aaaaaa" />
-        </Sphere>
-      </group>
     </group>
   );
 };
@@ -89,11 +82,11 @@ const Planets = () => {
       />
 
       <Planet
-        position={[-150, -100, -300]} // Bottom left position
+        position={[-400, -200, -200]} // Bottom left position
         color="#ffaa88"
         rotationSpeed={0.1}
         hasRings
-        size={20} // 2x larger
+        size={40} // 2x larger
       />
     </>
   );

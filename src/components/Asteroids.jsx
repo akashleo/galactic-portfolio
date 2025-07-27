@@ -1,12 +1,15 @@
 import * as THREE from 'three'
 import React, { useRef, useMemo, useState } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useLoader } from '@react-three/fiber'
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import ringTextureUrl from '../assets/ring.jpg'
 
 const Asteroids = ({ count = 100 }) => {
   const mesh = useRef()
   const dummy = useMemo(() => new THREE.Object3D(), [])
   const [particles, setParticles] = useState([])
   const spawnTimer = useRef(0)
+  const texture = useLoader(TextureLoader, ringTextureUrl)
 
   // Create initial asteroid state
   useMemo(() => {
@@ -61,9 +64,9 @@ const Asteroids = ({ count = 100 }) => {
   return (
     <instancedMesh ref={mesh} args={[null, null, particles.length]}>
       <icosahedronGeometry args={[1, 0]} />
-      <meshStandardMaterial color="#828282" roughness={0.8} />
+      <meshStandardMaterial map={texture} roughness={0.8} />
     </instancedMesh>
   )
 }
 
-export default Asteroids
+export default Asteroids;

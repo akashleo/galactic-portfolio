@@ -7,20 +7,6 @@ import Asteroids from './Asteroids';
 const Scene = () => {
   return (
     <>
-      {/* Image positioned at top right */}
-      <img 
-        src="/mfalcon.png" 
-        alt="Top right decoration" 
-        style={{
-          position: 'fixed',
-          top: '20px',
-          right: '20px',
-          zIndex: 10,
-          maxWidth: '150px',
-          maxHeight: '150px',
-          objectFit: 'contain'
-        }}
-      />
       <Canvas style={{ position: 'fixed', top: 0, left: 0, zIndex: 1 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[100, 100, 100]} intensity={2} />
