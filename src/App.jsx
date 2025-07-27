@@ -97,7 +97,7 @@ function App() {
     // Auto-hide intro after 10 seconds
     const introTimer = setTimeout(() => {
       setAppState(prev => ({ ...prev, showIntro: false }));
-    }, 30000);
+    }, 25000);
 
     return () => {
       clearTimeout(loadingTimer);

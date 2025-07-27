@@ -9,13 +9,13 @@ const Scene = () => {
     <>
       {/* Image positioned at top right */}
       <img 
-        src="/image.png" 
+        src="/mfalcon.png" 
         alt="Top right decoration" 
         style={{
           position: 'fixed',
           top: '20px',
           right: '20px',
-          zIndex: 2,
+          zIndex: 10,
           maxWidth: '150px',
           maxHeight: '150px',
           objectFit: 'contain'

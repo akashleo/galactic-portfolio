@@ -1,14 +1,16 @@
 import * as THREE from 'three'
-import React, { useRef, useMemo } from 'react'
+import React, { useRef, useMemo, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 const Asteroids = ({ count = 100 }) => {
   const mesh = useRef()
   const dummy = useMemo(() => new THREE.Object3D(), [])
+  const [particles, setParticles] = useState([])
+  const spawnTimer = useRef(0)
 
   // Create initial asteroid state
-  const particles = useMemo(() => {
-    const arr = []
+  useMemo(() => {
+    const initialParticles = []
     for (let i = 0; i < count; i++) {
       const position = new THREE.Vector3(
         -100 + Math.random() * 200,
@@ -18,12 +20,31 @@ const Asteroids = ({ count = 100 }) => {
       const speed = 0.5 + Math.random() * 1.5
       const direction = new THREE.Vector3(1, 1, 0.3).normalize().multiplyScalar(speed)
       const scale = 0.5 + Math.random() * 1.5
-      arr.push({ position, direction, scale })
+      initialParticles.push({ position, direction, scale })
     }
-    return arr
+    setParticles(initialParticles)
   }, [count])
 
   useFrame((_, delta) => {
+    spawnTimer.current += delta
+    
+    // Spawn new asteroids every 2-4 seconds
+    if (spawnTimer.current > 2 + Math.random() * 2) {
+      spawnTimer.current = 0
+      
+      const newParticle = {
+        position: new THREE.Vector3(
+          -100 + Math.random() * 200,
+          -100 + Math.random() * 200,
+          -100 + Math.random() * 200
+        ),
+        direction: new THREE.Vector3(1, 1, 0.3).normalize().multiplyScalar(0.5 + Math.random() * 1.5),
+        scale: 0.5 + Math.random() * 1.5
+      }
+      
+      setParticles(prev => [...prev, newParticle])
+    }
+
     particles.forEach((p, i) => {
       // Move in a straight line
       p.position.addScaledVector(p.direction, delta)
@@ -38,7 +59,7 @@ const Asteroids = ({ count = 100 }) => {
   })
 
   return (
-    <instancedMesh ref={mesh} args={[null, null, count]}>
+    <instancedMesh ref={mesh} args={[null, null, particles.length]}>
       <icosahedronGeometry args={[1, 0]} />
       <meshStandardMaterial color="#828282" roughness={0.8} />
     </instancedMesh>
